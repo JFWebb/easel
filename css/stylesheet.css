@@ -1,26 +1,42 @@
+/* Import Fonts */
 
+@import url('https://fonts.googleapis.com/css2?family=Freehand&family=Nunito:wght@300;400;500&family=Pacifico&display=swap');
+
+
+/* Color Pallet*/
 :root{
     --black: #212121;
 }
 
+/* Element Styling */
 html, body {
     background-color: var(--black);
     color: white;
-    /* min-height: 100vh; */
+    height: 100vh;
+    font-family: 'Nunito', sans-serif;
     display: flex;
     flex-direction: column;
+}
+
+h1{
+    font-family: 'Pacifico', cursive;
+    font-size: 3.1em;
+    box-sizing: border-box;
+    padding: 0% 0% 0% 3%;
 }
 
 .container {
     display: flex;
     flex-flow: row nowrap;
-    border-style: solid;
-    border-color: red;
-    border-width: 5px;
+    height: 70vh;
+    background-color: ghostwhite;
+    color: var(--black);
 }
 
 #art {
     width: 100%;
+    box-sizing: border-box;
+    padding: 5%;
 }
 
 #artWrapper{
@@ -29,6 +45,25 @@ html, body {
 
 #artInfo{
     flex: 1 1 50%;
+    box-sizing: border-box;
+    padding: 2% 0% 0% 0%;
+}
+
+#artist{
+    font-size: 1em;
+}
+
+#title {
+    font-size: 1em;
+}
+
+#year {
+    font-size: .9em;
+    font-style: italic;
+}
+#galleryText{
+    font-size: .85em;
+    padding: 0% 10% 0% 0%;
 }
 
 input {
@@ -43,12 +78,42 @@ input {
 .thumbnails {
     display: flex;
     flex-flow: row wrap;
-    align-items: center;
-    justify-content: space-around;
-    padding: 0;
+    /* align-items: center; */
+    justify-content: space-evenly;
     list-style: none;
 }
 
 li {
     flex-grow: 1;
+}
+
+/* Media Queries*/
+@media only screen and (max-width: 768px) {
+    #galleryText {
+        visibility: hidden;
+    }
+    
+    #artist{
+        font-size: .7em;
+    }
+    
+    #title {
+        font-size: .7em;
+    }
+    
+    #year {
+        font-size: .6em;
+        font-style: italic;
+    }
+
+    input{
+        height: 3em;
+        width: auto;
+    }
+
+    .thumbnails {
+        justify-content: center;
+        padding: 0;
+    }
+
 }

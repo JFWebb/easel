@@ -16,17 +16,17 @@ $input.on('click', handleGetData);
 
 //Functions
 // ---> Retrieve painting details
-function handleGetData(event){
+function handleGetData(event) {
 
     event.preventDefault();
 
     // build API call URL using object # stored in the clicked thumbnail
     const objectURL = `https://api.harvardartmuseums.org/object/${event.target.id}/?apikey=e4224f80-5149-40c2-baf7-7dea1178f26e`
 
-    $.ajax(objectURL).then(function(data){
+    $.ajax(objectURL).then(function (data) {
         console.log('art data is ready');
         // Build photo url according to IIIF. attached string dictates that the image content is scaled for the best fit such that the resulting width and height are less than or equal to the requested width and height. More here: https://iiif.io/api/image/2.1/#size
-        let src = data.images[0].iiifbaseuri + '/full/!250,250/0/default.jpg';
+        let src = data.images[0].iiifbaseuri + '/full/full/0/default.jpg';
         $img.attr("src", src);
         $artist.text(data.people[0].displayname);
         $title.text(data.title);
@@ -44,9 +44,9 @@ function handleGetData(event){
 //TESTING THE METAPI
 
 // ---> API Variables
-const metURL = "https://collectionapi.metmuseum.org/public/collection/v1/objects/437107"; 
-function handleGetData2(){
-    $.ajax(metURL).then(function(data){
+const metURL = "https://collectionapi.metmuseum.org/public/collection/v1/objects/437107";
+function handleGetData2() {
+    $.ajax(metURL).then(function (data) {
         console.log('art data is ready');
         // Build photo url according to IIIF. attached string dictates that the image content is scaled for the best fit such that the resulting width and height are less than or equal to the requested width and height. More here: https://iiif.io/api/image/2.1/#size
         //$img.attr("src", data.primaryImageSmall);

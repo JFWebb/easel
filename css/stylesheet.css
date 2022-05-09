@@ -1,7 +1,54 @@
-body {
-    background-color: lemonchiffon;
+
+:root{
+    --black: #212121;
+}
+
+html, body {
+    background-color: var(--black);
+    color: white;
+    /* min-height: 100vh; */
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    flex-flow: row nowrap;
+    border-style: solid;
+    border-color: red;
+    border-width: 5px;
+}
+
+#art {
+    width: 100%;
+}
+
+#artWrapper{
+    flex: 1 1 50%;
+}
+
+#artInfo{
+    flex: 1 1 50%;
 }
 
 input {
     -webkit-tap-highlight-color: transparent;
+}
+
+.footer{
+    margin-top: auto;
+    width: 100vw;
+
+}
+.thumbnails {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    flex-grow: 1;
 }

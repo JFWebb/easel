@@ -5,14 +5,14 @@
 
 /* Color Pallet*/
 :root {
-    --black: #212121;
+    --black: #141414;
 }
 
 /* Element Styling */
 html,
 body {
     background-color: var(--black);
-    color: white;
+    color: #FAFAFF;
     height: 100vh;
     font-family: 'Nunito', sans-serif;
     display: flex;
@@ -23,11 +23,13 @@ body {
 header {
     display: flex;
     justify-content: space-between;
-    height: 11vh;
+    align-items: center;
+    height: 13vh;
+    width: 100vw;
 }
 
 h1 {
-    font-family: 'Freehand', cursive;
+    font-family: 'Pacifico', cursive;
     font-size: 2.8em;
     font-style: italic;
     box-sizing: border-box;
@@ -36,25 +38,25 @@ h1 {
 }
 
 .thumbnails {
-    display: flex;
-    flex-flow: row wrap;
-    /* align-items: center; */
-    justify-content: space-around;
     list-style: none;
-}
-
-li {
-    flex-grow: 1;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    row-gap: 10px;
+    width: 70vw;
+    padding: 1em;
 }
 
 input {
     -webkit-tap-highlight-color: transparent;
+    height: 9vh;
 }
+
 .container {
     display: flex;
     flex-flow: row nowrap;
     /* add this height property to avoid weird behavior on mobile */
-    height: 30vh;
+    height: 32vh;
     background-color: ghostwhite;
     color: var(--black);
 }
@@ -99,14 +101,16 @@ input {
 #year {
     font-size: .8em;
     font-style: italic;
-    margin: 0;
+    box-sizing: border-box;
     padding: 0;
+    margin: 0;
 }
 
 #galleryText {
     font-size: .7em;
     padding: 0% 13% 0% 0%;
-    margin: 0;
+    margin: -1em 0em 0em 0em;
+    box-sizing: border-box;
 }
 
 /* Media Queries*/
@@ -133,13 +137,12 @@ input {
     }
 
     input {
-        height: 3em;
+        height: 2.5em;
         width: auto;
     }
 
-    .thumbnails {
-        justify-content: center;
-        padding: 0;
-    }
+    /* .thumbnails {
+        padding: 1em;
+    } */
 
 }

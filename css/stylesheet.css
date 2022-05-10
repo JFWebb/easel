@@ -4,82 +4,42 @@
 
 
 /* Color Pallet*/
-:root{
+:root {
     --black: #212121;
 }
 
 /* Element Styling */
-html, body {
+html,
+body {
     background-color: var(--black);
     color: white;
     height: 100vh;
     font-family: 'Nunito', sans-serif;
     display: flex;
     flex-direction: column;
+    margin: 0;
 }
 
-h1{
-    font-family: 'Pacifico', cursive;
-    font-size: 3.1em;
-    box-sizing: border-box;
-    padding: 0% 0% 0% 3%;
-}
-
-.container {
+header {
     display: flex;
-    flex-flow: row nowrap;
-    height: 70vh;
-    background-color: ghostwhite;
-    color: var(--black);
+    justify-content: space-between;
+    height: 11vh;
 }
 
-#art {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 5%;
-}
-
-#artWrapper{
-    flex: 1 1 50%;
-}
-
-#artInfo{
-    flex: 1 1 50%;
-    box-sizing: border-box;
-    padding: 2% 0% 0% 0%;
-}
-
-#artist{
-    font-size: 1em;
-}
-
-#title {
-    font-size: 1em;
-}
-
-#year {
-    font-size: .9em;
+h1 {
+    font-family: 'Freehand', cursive;
+    font-size: 2.8em;
     font-style: italic;
-}
-#galleryText{
-    font-size: .85em;
-    padding: 0% 10% 0% 0%;
-}
-
-input {
-    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+    padding: 0% 2% 0% 2%;
+    margin: 0.1em;
 }
 
-.footer{
-    margin-top: auto;
-    width: 100vw;
-
-}
 .thumbnails {
     display: flex;
     flex-flow: row wrap;
     /* align-items: center; */
-    justify-content: space-evenly;
+    justify-content: space-around;
     list-style: none;
 }
 
@@ -87,26 +47,92 @@ li {
     flex-grow: 1;
 }
 
+input {
+    -webkit-tap-highlight-color: transparent;
+}
+.container {
+    display: flex;
+    flex-flow: row nowrap;
+    /* add this height property to avoid weird behavior on mobile */
+    height: 30vh;
+    background-color: ghostwhite;
+    color: var(--black);
+}
+#pano {
+    width: 100vw;
+    height: 400px;
+}
+
+#map {
+    width: 1px;
+    height: 1px;
+    visibility: hidden;
+}
+#art {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+    padding: 3%;
+}
+
+#artWrapper {
+    /* split screen evenly with art info text */
+    /* flex: 1 1 50%; */
+}
+
+#artInfo {
+    /* split screen evenly with art image */
+    flex: 1 1 50%;
+    box-sizing: border-box;
+}
+
+#artist {
+    font-size: .9em;
+}
+
+#title {
+    font-size: .9em;
+}
+
+#year {
+    font-size: .8em;
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+}
+
+#galleryText {
+    font-size: .7em;
+    padding: 0% 13% 0% 0%;
+    margin: 0;
+}
+
 /* Media Queries*/
 @media only screen and (max-width: 768px) {
+    #art {
+        width: 100%;
+        max-height:auto;
+    }
     #galleryText {
         visibility: hidden;
     }
-    
-    #artist{
+
+    #artist {
         font-size: .7em;
     }
-    
+
     #title {
         font-size: .7em;
     }
-    
+
     #year {
         font-size: .6em;
         font-style: italic;
     }
 
-    input{
+    input {
         height: 3em;
         width: auto;
     }

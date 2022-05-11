@@ -16,52 +16,67 @@ const $location = $('#location');
 const $galleryText = $('#galleryText');
 
 // ---> Coordinates Object
-// Coordinates:
-//Nocturne in Grey and Gold : 51.48204449128982, -0.17413937371912416
-//The Parc Monceau, Monet 48.8789630676398, 2.307332645028721
-// The Dance Class 48.87490106924117, 2.3394563623329425
-// mardigras 48.8712125970842, 2.344939078928708
-// ile de la jatte 48.899723328699245, 2.2782328346520906
-// Saint Lazare 48.87654299083505, 2.3238306820761157
 const coordinates = [
     {
         title: "The Gare Saint-Lazare: Arrival of a Train",
         objectID: 228649,
-        lat: 48.87654299083505,
-        lng: 2.3238306820761157,
+        latlng: {
+            lat: 48.87654299083505,
+            lng: 2.3238306820761157,
+        },
         heading: 4,
         pitch: 10
     },
     {
         title: "Nocturne in Grey and Gold: Chelsea Snow",
         objectID: 230417,
-        lat: 51.48204449128982,
-        lng: -0.17413937371912416,
+        latlng: {
+            lat: 51.48204449128982,
+            lng: -0.17413937371912416
+        },
+        heading: 34,
+        pitch: 10
     },
     {
         title: "Nocturne in Grey and Gold: Chelsea Snow",
         objectID: 230417,
-        lat: 51.48204449128982,
-        lng: -0.17413937371912416,
+        latlng: {
+            lat: 51.48204449128982,
+            lng: -0.17413937371912416,
+        },
+        heading: 4,
+        pitch: 10
     },
     {
         title: "Mardi Gras on the Boulevards",
         objectID: 229059,
-        lat: 48.8712125970842,
-        lng: 2.344939078928708,
+        latlng: {
+            lat: 48.8712125970842,
+            lng: 2.344939078928708,
+        },
+        heading: 4,
+        pitch: 10
     },
     {
         title: "The Rehearsal",
         objectID: 303496,
-        lat: 48.87490106924117,
-        lng: 2.2782328346520906,
+        latlng: {
+            lat: 48.87490106924117,
+            lng: 2.2782328346520906,
+        },
+        heading: 4,
+        pitch: 10,
     },
     {
         title: `Seated Figures, Study for "A Sunday Afternoon on the Island of La Grande Jatte"
         `,
         objectID: 229049,
-        lat: 48.899723328699245,
-        lng: 2.3238306820761157,
+        latlng: {
+            lat: 48.899723328699245,
+            lng: 2.3238306820761157,
+        },
+        heading: 4,
+        pitch: 10,
     }
 ]
 
@@ -70,6 +85,46 @@ const coordinates = [
 $input.on('click', handleGetData);
 
 //Functions
+
+// --- > Initialize and add the default streetview
+// ajax cannot parse the google maps API without specifying the data type to be JSONP. I THINK this is because requesting the street view url is technically requesting another file, which is not acceptable with the cross-domain policy of AJAX. JSONP will request the streetview as an external script from the outside domain, which is acceptable.
+$.ajax({ url: svURL, dataType: "jsonp" }).then(function () {
+    initMap();
+});
+
+//instaniate map/streetview
+function initMap(loc) {
+    // The location
+    const location = loc.latlng;
+    console.log(loc.latlng);
+        // The map
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 4,
+        center: location,
+    });
+    // the panorama
+    const panorama = new google.maps.StreetViewPanorama(document.getElementById("pano"), {
+        position: location,
+        pov: {
+            // looking up/down
+            heading: loc.heading,
+            // looking side-to-side
+            pitch: loc.pitch,
+        },
+    });
+
+    map.setStreetView(panorama);
+}
+
+//update position of map
+// function changePosition(center) {
+//     const map = google.maps.Map(document.getElementById("map"));
+//     const pano = google.maps.StreetViewPanorama(document.getElementById("pano"));
+//     map.setCenter(center);
+//     pano.setPosition(center);
+
+// }
+
 // ---> Retrieve painting details
 function handleGetData(event) {
 
@@ -90,32 +145,10 @@ function handleGetData(event) {
     }, function (error) {
         console.log('somethings is awry');
         console.log(error);
-    });
+    });   
 };
 
-$.ajax({ url: svURL, dataType: "jsonp" }).then(function () {
-    initMap();
-});
 
-// Initialize and add the map
-function initMap() {
-    // The location
-    const location = { lat: 48.87654299083505, lng: 2.3238306820761157 };
-    // The map
-    const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 4,
-        center: location,
-    });
-    // the panorama
-    const panorama = new google.maps.StreetViewPanorama(document.getElementById("pano"), {
-        position: location,
-        pov: {
-            // looking up/down
-            heading: 4,
-            // looking side-to-side
-            pitch: 10,
-        },
-    });
 
-    map.setStreetView(panorama);
-}
+
+

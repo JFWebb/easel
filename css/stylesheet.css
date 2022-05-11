@@ -34,7 +34,7 @@ h1 {
     font-size: 3.5em;
     font-style: italic;
     box-sizing: border-box;
-    padding: 0% 2% 0% 2%;
+    padding: 0em 0.2em 0em 0.5em;
     margin: 0.1em;
 }
 
@@ -51,8 +51,8 @@ input {
     -webkit-tap-highlight-color: transparent;
     height: 8vh;
     border-style: inset;
-    border-color: var(--yellow);
-    border-width: 4px;
+    border-color: rgba(251, 174, 23, 0.90);
+    border-width: 3.5px;
     border-radius: 10%;
     /* border-width: 9px;
     border-radius: 15%;
@@ -139,7 +139,7 @@ footer {
 @media only screen and (max-width: 900px) {
     h1 {
         font-size: 3em;
-        padding-left: 0.3em;
+        padding-left: 0.5em;
     }
 
     #art {

@@ -1,18 +1,19 @@
 /* Import Fonts */
-
-@import url('https://fonts.googleapis.com/css2?family=Freehand&family=Nunito:wght@300;400;500&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dr+Sugiyama&family=Freehand&family=Nunito:wght@300;400;500&family=Pacifico&display=swap');
 
 
 /* Color Pallet*/
 :root {
     --black: #141414;
+    --white: #FAFAFF;
+    --yellow: #FBAE17;
 }
 
 /* Element Styling */
 html,
 body {
     background-color: var(--black);
-    color: #FAFAFF;
+    color: var(--white);
     height: 100vh;
     font-family: 'Nunito', sans-serif;
     display: flex;
@@ -29,8 +30,8 @@ header {
 }
 
 h1 {
-    font-family: 'Pacifico', cursive;
-    font-size: 2.8em;
+    font-family: 'Dr Sugiyama', cursive;
+    font-size: 3.5em;
     font-style: italic;
     box-sizing: border-box;
     padding: 0% 2% 0% 2%;
@@ -42,14 +43,21 @@ h1 {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
-    row-gap: 10px;
     width: 70vw;
     padding: 1em;
 }
 
 input {
     -webkit-tap-highlight-color: transparent;
-    height: 9vh;
+    height: 8vh;
+    border-style: inset;
+    border-color: var(--yellow);
+    border-width: 4px;
+    border-radius: 10%;
+    /* border-width: 9px;
+    border-radius: 15%;
+    outline: 5px solid var(--black);
+    outline-offset: -7px; */
 }
 
 .container {
@@ -60,6 +68,7 @@ input {
     background-color: ghostwhite;
     color: var(--black);
 }
+
 #pano {
     width: 100vw;
     height: 400px;
@@ -70,6 +79,7 @@ input {
     height: 1px;
     visibility: hidden;
 }
+
 #art {
     max-width: 100%;
     max-height: 100%;
@@ -79,60 +89,78 @@ input {
     padding: 3%;
 }
 
-#artWrapper {
-    /* split screen evenly with art info text */
-    /* flex: 1 1 50%; */
-}
-
 #artInfo {
     /* split screen evenly with art image */
     flex: 1 1 50%;
     box-sizing: border-box;
+    padding: 0 0.25em 0 0;
 }
 
 #artist {
     font-size: .9em;
+    padding: 0;
+    margin-bottom: 0.2em;
 }
 
 #title {
     font-size: .9em;
+    padding: 0;
+    margin: 0.2em;
 }
 
 #year {
-    font-size: .8em;
+    font-size: .7em;
     font-style: italic;
     box-sizing: border-box;
     padding: 0;
-    margin: 0;
+    margin: 0.2em;
 }
 
 #galleryText {
     font-size: .7em;
-    padding: 0% 13% 0% 0%;
-    margin: -1em 0em 0em 0em;
+    padding: 1% 5% 0% 0%;
+    margin: 0;
     box-sizing: border-box;
 }
 
+footer {
+    text-align: center;
+    font-size: 0.8em;
+    color: var(--yellow);
+    color: rgba(251, 174, 23, 0.80);
+
+}
+
+.footerlink {
+    color: var(--yellow)
+    color
+}
 /* Media Queries*/
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 900px) {
+    h1 {
+        font-size: 3em;
+        padding-left: 0.3em;
+    }
+
     #art {
         width: 100%;
-        max-height:auto;
+        max-height: auto;
     }
+
     #galleryText {
         visibility: hidden;
     }
 
     #artist {
-        font-size: .7em;
+        font-size: .8em;
     }
 
     #title {
-        font-size: .7em;
+        font-size: .8em;
     }
 
     #year {
-        font-size: .6em;
+        font-size: .8em;
         font-style: italic;
     }
 

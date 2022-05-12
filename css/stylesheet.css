@@ -161,7 +161,7 @@ footer {
     }
 
     #art {
-        width: 100%;
+        width: 90%;
         max-height: auto;
     }
 
@@ -171,18 +171,18 @@ footer {
 
     #artist {
         font-size: .8em;
-        padding: 0.5em;
+        padding: 0.3em;
     }
 
     #title {
         font-size: .8em;
-        padding: 0.5em;
+        padding: 0.3em;
     }
 
     #year {
         font-size: .8em;
         font-style: italic;
-        padding: 0.5em;
+        padding: 0.3em;
     }
 
     input {
@@ -197,8 +197,16 @@ footer {
 }
 
 @media only screen and (max-width: 500px){
+    html,
+    body{
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        overflow-y: hidden;
+    }
+
     header {
-        width: 95vw;
+        height: 11vh;
         justify-content: space-between;
     }
 
@@ -207,12 +215,24 @@ footer {
     }
 
     .thumbnails {
-        width: 75vw;
+        width: 70vw;
         padding: 0.2em 0.5em 0em 1em;
     }
 
     input {
         height: 2.1em;
         width: auto;
+    }
+
+    #pano {
+        height: 350px;
+    }
+
+    .container {
+        height: 10em;
+    }
+
+    footer {
+        font-size: 0.6em;
     }
 }

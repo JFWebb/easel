@@ -15,6 +15,7 @@ const $year = $('#year');
 const $location = $('#location');
 const $galleryText = $('#galleryText');
 
+
 // ---> Coordinates Object
 const coordinates = [
     {
@@ -76,25 +77,24 @@ const coordinates = [
 //EVENT LISTENERS
 $input.on('click', handleGetData);
 
-//Functions
+//FUNCTIONS
 
-// --- > Initialize and add the default streetview
-// ajax cannot parse the google maps API without specifying the data type to be JSONP. I THINK this is because requesting the street view url is technically requesting another file, which is not acceptable with the cross-domain policy of AJAX. JSONP will request the streetview as an external script from the outside domain, which is acceptable.
+// --- > Initialize Maps & Street View
+// ---> ajax cannot parse the google maps API without specifying the data type to be JSONP. I THINK this is because requesting the street view url is requesting another file, which is not acceptable with the cross-domain policy of AJAX. JSONP will request the streetview file as an external script from the outside domain, which is acceptable.
 $.ajax({ url: svURL, dataType: "jsonp" }).then(function () {
     initMap();
 });
 
-//instaniate map/streetview
+// Initalize Map to a passed {lat, lng} location
 function initMap(loc) {
-    // The location
     const location = loc.latlng;
     console.log(loc.latlng);
-    // The map
+    // Build Map
     const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 4,
         center: location,
     });
-    // the panorama
+    // Build Street View
     const panorama = new google.maps.StreetViewPanorama(document.getElementById("pano"), {
         position: location,
         pov: {
@@ -108,26 +108,17 @@ function initMap(loc) {
     map.setStreetView(panorama);
 }
 
-//update position of map
-// function changePosition(center) {
-//     const map = google.maps.Map(document.getElementById("map"));
-//     const pano = google.maps.StreetViewPanorama(document.getElementById("pano"));
-//     map.setCenter(center);
-//     pano.setPosition(center);
-
-// }
-
 // ---> Retrieve painting details
 function handleGetData(event) {
 
     event.preventDefault();
 
-    // build API call URL using object # stored in the clicked thumbnail
+    // Build API call URL using object # stored as ID in the clicked thumbnail
     const objectURL = `https://api.harvardartmuseums.org/object/${event.target.id}/?apikey=${artKey}`
 
     $.ajax(objectURL).then(function (data) {
         console.log('art data is ready');
-        // Build photo url according to IIIF. attached string dictates that the image content is scaled for the best fit such that the resulting width and height are less than or equal to the requested width and height. More here: https://iiif.io/api/image/2.1/#size
+        // Build photo url according to IIIF URL construction. Attached string dictates that the image content is scaled for the best fit such that the resulting width and height are less than or equal to the requested width and height. More here: https://iiif.io/api/image/2.1/#size
         let src = data.images[0].iiifbaseuri + '/full/full/0/default.jpg';
         $img.attr("src", src);
         $artist.text(data.people[0].displayname);

@@ -171,15 +171,18 @@ footer {
 
     #artist {
         font-size: .8em;
+        padding: 0.5em;
     }
 
     #title {
         font-size: .8em;
+        padding: 0.5em;
     }
 
     #year {
         font-size: .8em;
         font-style: italic;
+        padding: 0.5em;
     }
 
     input {
@@ -193,9 +196,10 @@ footer {
 
 }
 
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 500px){
     header {
-        width: 90vw;
+        width: 95vw;
+        justify-content: space-between;
     }
 
     h1 {
@@ -203,9 +207,10 @@ footer {
     }
 
     .thumbnails {
-        width: 60vw;
+        width: 75vw;
+        padding: 0.2em 0.5em 0em 1em;
     }
-    
+
     input {
         height: 2.1em;
         width: auto;

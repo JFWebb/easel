@@ -1,10 +1,11 @@
 # Easel
 ![visitors](https://visitor-badge.glitch.me/badge?page_id=jfwebb.easel)
 #### A full-stack web application built as a first project.
+
 <img src="./Images/HomeImage.png" alt="Easel Mainpage Screenshot"/>
 
 ## Description
-Look up from the easel of these Harvard Art Museum city-scapes and explore them in real life.
+Look up from the easel of these Harvard Art Museum city-scapes and explore them in real life!git p
 
 ## <a name="technologiesused"></a> Technologies Used
 * HTML5

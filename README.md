@@ -5,7 +5,7 @@
 <img src="./Images/HomeImage.png" alt="Easel Mainpage Screenshot"/>
 
 ## Description
-Look up from the easel of these Harvard Art Museum city-scapes and explore them in real life!git p
+Look up from the easel of these Harvard Art Museum city-scapes and explore them in real life!
 
 ## <a name="technologiesused"></a> Technologies Used
 * HTML5
@@ -17,7 +17,7 @@ Look up from the easel of these Harvard Art Museum city-scapes and explore them 
 * [Google Street View Service API](https://developers.google.com/maps/documentation/streetview/overview)
 
 ## <a name="gettingstarted"></a> Getting Started
-[Click here] to see the deployed app! Click on one of the paintings in the top navigation bar and explore the painting's subject location with Google Street View. 
+[Click here](https://easel.netlify.app/) to see the deployed app! Click on one of the paintings in the top navigation bar and explore the painting's subject location with Google Street View. 
 
 ## <a name="future"></a> What's Next?
 * Create Versions of Easel for Artist or Gallery Collections

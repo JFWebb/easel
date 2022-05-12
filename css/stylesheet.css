@@ -54,10 +54,16 @@ input {
     border-color: rgba(251, 174, 23, 0.90);
     border-width: 3.5px;
     border-radius: 5%;
+    opacity: 60%;
+    transition: 0.3s;
     /* border-width: 9px;
     border-radius: 15%;
     outline: 5px solid var(--black);
     outline-offset: -7px; */
+}
+
+input:hover {
+    opacity: 90%;
 }
 
 .container {
@@ -136,9 +142,15 @@ footer {
 }
 
 .footerlink {
-    color: var(--yellow)
-    color
+    color: rgba(251, 174, 23, 0.50);
+    transition: 0.3s;
 }
+
+
+.footerlink:hover {
+    color: rgba(251, 174, 23, 0.70);
+}
+
 /* Media Queries*/
 @media only screen and (max-width: 800px) {
     h1 {

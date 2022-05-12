@@ -27,7 +27,7 @@ const coordinates = [
         // looking side-to-side
         heading: -15,
         // looking up & down
-        pitch: 10,
+        pitch: 5,
     },
     {
         title: "Nocturne in Grey and Gold: Chelsea Snow",

@@ -42,18 +42,18 @@ h1 {
     list-style: none;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 70vw;
-    padding: 1em;
+    padding: 0.2em 1em 0em 1em;
 }
 
 input {
     -webkit-tap-highlight-color: transparent;
-    height: 8vh;
+    height: 9vh;
     border-style: inset;
     border-color: rgba(251, 174, 23, 0.90);
     border-width: 3.5px;
-    border-radius: 10%;
+    border-radius: 5%;
     /* border-width: 9px;
     border-radius: 15%;
     outline: 5px solid var(--black);
@@ -67,6 +67,10 @@ input {
     height: 32vh;
     background-color: ghostwhite;
     color: var(--black);
+    border-style: inset;
+    border-color: rgba(251, 174, 23, 0.90);
+    border-width: 3.5px;
+    border-radius: 0%;
 }
 
 #pano {
@@ -86,14 +90,14 @@ input {
     width: auto;
     height: auto;
     box-sizing: border-box;
-    padding: 3%;
+    padding: 1.5em;
 }
 
 #artInfo {
     /* split screen evenly with art image */
-    flex: 1 1 50%;
+    flex: 1 1 40%;
     box-sizing: border-box;
-    padding: 0 0.25em 0 0;
+    padding: 0.8em 0.25em 0 0;
 }
 
 #artist {
@@ -127,7 +131,7 @@ footer {
     text-align: center;
     font-size: 0.8em;
     color: var(--yellow);
-    color: rgba(251, 174, 23, 0.80);
+    color: rgba(251, 174, 23, 0.50);
 
 }
 
@@ -136,7 +140,7 @@ footer {
     color
 }
 /* Media Queries*/
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 800px) {
     h1 {
         font-size: 3em;
         padding-left: 0.5em;
@@ -165,7 +169,7 @@ footer {
     }
 
     input {
-        height: 2.5em;
+        height: 3.2em;
         width: auto;
     }
 
